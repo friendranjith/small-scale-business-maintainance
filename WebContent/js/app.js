@@ -1,4 +1,4 @@
-var TEMPLATES_PATH = "/fertilizer2/html/";
+var TEMPLATES_PATH = "/small-scale-business-maintainance/html/";
 
 var app = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 

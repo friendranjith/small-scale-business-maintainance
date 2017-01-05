@@ -8,6 +8,6 @@ package com.ssbm.globals;
  *
  */
 public class Global {
-	public static String APPLICATION_PATH = "http://localhost:8080/fertilizer2";
+	public static String APPLICATION_PATH = "http://localhost:8080/small-scale-business-maintainance";
 	public static String SESSION_USER = "user";
 }
