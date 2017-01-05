@@ -1,0 +1,22 @@
+<h2>Products</h2><button class="btn btn-primary" ng-click='open()'>Add</button>
+<hr>
+<div ng-init="getProducts();">
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Name</th>
+					<th>Cost</th>
+					<th>company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in productsList">
+                    <td>{{user.name}}</td>
+					<td>{{user.cost}}</td>
+					<td>{{user.company}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
