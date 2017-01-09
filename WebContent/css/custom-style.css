@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+.content-header .content-header-left{
+	float: left;
+}
+.content-header .content-header-right{
+	float: right;
+}

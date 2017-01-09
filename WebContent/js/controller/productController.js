@@ -41,5 +41,6 @@ app.controller('productController',['$scope','products','$uibModal',function($sc
 }]);
 
 app.controller('ProductAddController', function($scope){
+	$scope.measurments = ["g", "kg", "ltr","ml"];
 	
 });

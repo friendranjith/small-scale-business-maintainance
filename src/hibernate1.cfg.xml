@@ -5,19 +5,19 @@
   
 <hibernate-configuration> 
   
-    <session-factory>  
+    <session-factory>
         <property name="hbm2ddl.auto">update</property>  
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>  
         <property name="connection.url">jdbc:mysql://localhost/ssbm</property>  
-        <property name="connection.username">root</property>  
-        <property name="connection.password">santhu</property> 
-        <property name="show_sql">true</property> 
+        <property name="connection.username">root</property>
+        <property name="connection.password">santhu</property>
+        <property name="show_sql">true</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        
-        <mapping class="com.sss.pojo.User"/>
-        <mapping class="com.sss.pojo.Product"/>
-        <mapping class="com.sss.pojo.ProductQuantities"/>
-        <mapping class="com.sss.pojo.SellerInfo"/>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="com.ssbm.pojo.User"/>
+        <mapping class="com.ssbm.pojo.Product"/>
+        <mapping class="com.ssbm.pojo.ProductQuantities"/>
+        <mapping class="com.ssbm.pojo.SellerInfo"/>
     </session-factory>  
   
 </hibernate-configuration>  

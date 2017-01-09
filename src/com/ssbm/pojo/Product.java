@@ -7,29 +7,28 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.sun.istack.internal.NotNull;
 
 @Entity
 @Table(name="product")
 public class Product {
 	@Id
 	@GeneratedValue
+	@NotNull
 	private Integer id;
 	
 	private String name;
 	
 	private Integer userId;
 	
-	private String measurement;
-	
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "id")
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "product")
 	private SellerInfo sellerInfo;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id")
+	@OneToMany(fetch=FetchType.EAGER, mappedBy="product")
 	private List<ProductQuantities> productQuantities;
 	
 	private Timestamp createdTime;
@@ -50,14 +49,6 @@ public class Product {
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
-	}
-
-	public String getMeasurement() {
-		return measurement;
-	}
-
-	public void setMeasurement(String measurement) {
-		this.measurement = measurement;
 	}
 
 	public Timestamp getCreatedTime() {

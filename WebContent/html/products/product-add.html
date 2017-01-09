@@ -14,19 +14,26 @@
 	        			<label>Company</label>
 	        			<input class="form-control" ng-model="product.company">
 	        		</div>
-					<div class="form-group input-group"> 
-						<label>Cost</label>
-						<span class="input-group-addon">Rs</span>
-					    <input class="form-control" type="text" ng-model="product.cost">
-					    <span class="input-group-addon">.00</span>
+	        		<label>Details</label> 				
+					<div class="form-group input-group">
+						<div class='col-sm-3'>
+							<input class="form-control" placeholder="Quantity" ng-model="product.quantity">
+						</div>
+						<div class='col-sm-3'>
+							<select class="form-control" ng-model="product.measurements" placeholder="Measurements" ng-options="x for x in measurments">
+							<option value="" disabled selected>Measurement</option>  							    
+							 </select>
+						</div>
+						<div class='col-sm-3'>
+							<input class="form-control" placeholder="Cost" ng-model="product.cost">
+						</div>
+						<div class='col-sm-3'>
+							<input class="form-control" placeholder="Discount" ng-model="product.discount">
+						</div>
 				    </div>
-				    <div class="form-group input-group"> 
-						<label>Discount</label>
-					    <input class="form-control" type="text" ng-model="product.discount">
-					    <span class="input-group-addon">%</span>
+				    <div style="text-align:center" class="form-group">
+				    	<button  class="btn btn-primary" ng-click="">Add Product</button>
 				    </div>
-	        		
-
         		</fieldset>
         	</div>
         </div>

@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.sun.istack.internal.NotNull;
 
 /**
  * @author Santhosh
@@ -21,13 +24,25 @@ import javax.persistence.Table;
 public class ProductQuantities {
 	@Id
 	@GeneratedValue
-	@OneToMany(fetch = FetchType.EAGER, mappedBy="id")
+	@NotNull
 	private Integer id;
 	
+	/**
+	 * Product id
+	 * Foreign key
+	 */
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="productid")
+	private Product product;
 	/**
 	 * product weight
 	 */
 	private Float quantity;
+	
+	/**
+	 * Product measurement
+	 */
+	private String measurement;
 	
 	/**
 	 * in cents
@@ -69,5 +84,13 @@ public class ProductQuantities {
 
 	public void setDiscount(float discount) {
 		this.discount = discount;
+	}
+	
+	public String getMeasurement() {
+		return measurement;
+	}
+
+	public void setMeasurement(String measurement) {
+		this.measurement = measurement;
 	}
 }
