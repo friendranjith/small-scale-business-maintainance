@@ -1,6 +1,6 @@
 var TEMPLATES_PATH = "/small-scale-business-maintainance/html/";
 
-var app = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
+var app = angular.module('myApp', ['ngRoute']);
 
 
 app.config(['$routeProvider',function($routeProvider) {

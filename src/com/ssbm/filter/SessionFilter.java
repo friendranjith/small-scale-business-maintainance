@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ssbm.globals.Global;
 import com.ssbm.pojo.User;
-import com.ssbm.session.SessionCache;
 import com.ssbm.session.SessionManager;
 
 /**
@@ -33,8 +32,8 @@ public class SessionFilter implements Filter{
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) req;
 		HttpServletResponse httpResponse = (HttpServletResponse) res;
-		
-		if(httpRequest.getRequestURI() != null && httpRequest.getRequestURI().contains("login")){
+		String uri = httpRequest.getRequestURI();
+		if(uri != null && (uri.contains("login") || uri.contains("/js") || uri.contains("/css") || uri.contains("/html") || uri.contains("/image"))){
 			chain.doFilter(req, res);
 			return;
 		}
