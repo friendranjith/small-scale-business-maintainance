@@ -11,6 +11,6 @@ import com.ssbm.service.ProductService;
  */
 public class ProductUtil {
 	public static ProductService getProductService() throws InstantiationException, IllegalAccessException, ClassNotFoundException{
-		return (ProductService) (Class.forName("com.sss.service.impl.ProductServiceImpl").newInstance());
+		return (ProductService) (Class.forName("com.ssbm.service.impl.ProductServiceImpl").newInstance());
 	}
 }

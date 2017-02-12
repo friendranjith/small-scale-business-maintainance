@@ -1,41 +1,127 @@
-<div class="modal-dialog" ng-controller="ProductAddController">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button aria-label="Close" class="close" data-dismiss="modal" ng-click="close()" type="button"> <span aria-hidden="true">×</span> </button>
-            <h5 class="modal-title">Add Product</h5> </div>
-        <div class="modal-body"> 
-        	<div class="form">
-        		<fieldset>
-        			<div class="form-group">
-	        			<label>Name</label>
-	        			<input class="form-control" ng-model="product.name">
-	        		</div>
-	        		<div class="form-group">
-	        			<label>Company</label>
-	        			<input class="form-control" ng-model="product.company">
-	        		</div>
-	        		<label>Details</label> 				
-					<div class="form-group input-group">
-						<div class='col-sm-3'>
-							<input class="form-control" placeholder="Quantity" ng-model="product.quantity">
-						</div>
-						<div class='col-sm-3'>
-							<select class="form-control" ng-model="product.measurements" placeholder="Measurements" ng-options="x for x in measurments">
-							<option value="" disabled selected>Measurement</option>  							    
-							 </select>
-						</div>
-						<div class='col-sm-3'>
-							<input class="form-control" placeholder="Cost" ng-model="product.cost">
-						</div>
-						<div class='col-sm-3'>
-							<input class="form-control" placeholder="Discount" ng-model="product.discount">
-						</div>
-				    </div>
-				    <div style="text-align:center" class="form-group">
-				    	<button  class="btn btn-primary" ng-click="">Add Product</button>
-				    </div>
-        		</fieldset>
-        	</div>
+<!-- 
+ <div class="modal-content">
+     <div class="col s12 m12 l6">
+    <div class="card-panel">
+        <h4 class="header2">Add Products</h4>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" type="text" ng-model="product.name">
+                        <label for="first_name">Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" ng-model="product.company">
+                        <label for="email">Company</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" ng-model="product.quantity">
+                        <label for="password">Quantity</label>
+                    </div>
+                </div>
+                <div class="row">
+				    <select>
+				      <option value="" disabled selected>Choose your option</option>
+				      <option value="1">Option 1</option>
+				      <option value="2">Option 2</option>
+				      <option value="3">Option 3</option>
+				    </select>
+				    <label>Materialize Select</label>
+  				</div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" ng-model="product.cost">
+                        <label for="password">Cost</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" ng-model="product.discount">
+                        <label for="password">Discount</label>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                                <i class="mdi-content-send right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+ </div>
+ <div class="modal-footer green lighten-4">
+     <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Add</a>
+ </div> -->
+
+
+<md-dialog aria-label="ADD" ng-contoller="DialogController">
+<form ng-cloak>
+	<md-toolbar>
+	<div class="md-toolbar-tools">
+		<h2>Add Product</h2>
+		<span flex></span>
+		<md-button class="md-icon-button" ng-click="cancel()"> <md-icon
+			md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+		</md-button>
+	</div>
+	</md-toolbar>
+
+	<md-dialog-content>
+	<div class="md-dialog-content">
+		<div class="input-field col s12">
+			<input id="name" type="text" ng-model="product.name"> <label
+				for="first_name">Name</label>
+		</div>
+		<div class="input-field col s12">
+			<input id="company" type="text" ng-model="product.company"> <label
+				for="company">Company</label>
+		</div>
+		<md-input-container class="md-block" flex-gt-sm>
+            <label>Measurement</label>
+            <md-select ng-model="measurements" >
+              <md-option  ng-value="measurement" ng-repeat="measurement in measurements " >gr{{measurement}}              
+              </md-option>
+              <!-- <md-option  value="measurement" >
+                ltr
+              </md-option>
+              <md-option  value="measurement" >
+                kg
+              </md-option>
+              <md-option  value="measurement" >
+                gr
+              </md-option> -->
+            </md-select>
+          </md-input-container>
+		<div class="input-field col s12">
+			<input id="quantity" type="text" ng-model="product.quantity" value="quantity">
+			<label for="quantity">Quantity</label>
+		</div>
+		<div class="input-field col s12">
+			<input id="cost" type="text" ng-model="product.cost"> <label
+				for="cost">Cost</label>
+		</div>
+		<div class="input-field col s12">
+			<input id="discount" type="text" ng-model="product.discount">
+			<label for="discount">Discount</label>
+		</div>
+	</div>
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row"> <!-- <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')">
+       Not Useful
+      </md-button> --> <md-button ng-click="answer('useful')"
+		class="md-primary"> ADD </md-button> </md-dialog-actions>
+</form>
+</md-dialog>

@@ -17,7 +17,7 @@ import com.ssbm.service.ProductService;
 public class ProductServiceImpl implements ProductService{
 
 	/* (non-Javadoc)
-	 * @see com.sss.service.ProductService#getAllProducts(javax.servlet.http.HttpServletRequest)
+	 * @see com.ssbm.service.ProductService#getAllProducts(javax.servlet.http.HttpServletRequest)
 	 */
 	@Override
 	public List<Product> getAllProducts() {

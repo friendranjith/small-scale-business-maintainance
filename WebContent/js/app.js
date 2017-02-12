@@ -1,9 +1,9 @@
 var TEMPLATES_PATH = "/small-scale-business-maintainance/html/";
+var app = angular.module('myApp', ['ngRoute','ngMaterial']);
 
-var app = angular.module('myApp', ['ngRoute']);
 
-
-app.config(['$routeProvider',function($routeProvider) {
+app.config(['$routeProvider','$qProvider',function($routeProvider,$qProvider) {
+	 $qProvider.errorOnUnhandledRejections(false);
 	$routeProvider.when('/home', {
 		templateUrl : TEMPLATES_PATH+'products/product-list.html',
 		controller : 'productController'
