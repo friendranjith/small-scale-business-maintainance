@@ -1,7 +1,4 @@
-app.controller('DialogController',[ function($scope){
-	$scope.measurments = ["g", "kg", "ltr","ml"];
-	
-}]);
+
 
 app.controller('productController',['$scope', 'products', '$mdDialog', function($scope, products, $mdDialog) {
 	$scope.getProducts =function(){
@@ -28,7 +25,12 @@ app.controller('productController',['$scope', 'products', '$mdDialog', function(
 	  };
 
 	  function DialogController($scope, $mdDialog) {
-		  $scope.measurments = ["g", "kg", "ltr","ml"];
+		  $scope.measurments = [
+		                  { id: 1, name: 'g' },
+		                  { id: 2, name: 'kg' },
+		                  { id: 3, name: 'ltr' },
+		                  { id: 3, name: 'ml' }
+		                ];
 		  $scope.names = ["Emil", "Tobias", "Linus"];
 		  //$scope.name = shiva;
 		  $scope.hide = function() {
