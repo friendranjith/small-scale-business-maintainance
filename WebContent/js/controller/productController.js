@@ -1,30 +1,28 @@
 
 
-app.controller('productController',['$scope', 'products', '$mdDialog', function($scope, products, $mdDialog) {
+app.controller('productController',['$scope', 'products', '$http','ModalService', function($scope, products, $http,ModalService) {
 	$scope.getProducts =function(){
 		products.getProducts().then(function(response){
 			$scope.productsList =response;
 		},function(msg){
 			console.log(msg);
 		});
-		//return $scope.productsList;
 	};
 	$scope.addProduct = function(ev) {
-	    $mdDialog.show({
-	      controller: DialogController,
-	      templateUrl: TEMPLATES_PATH+'products/product-add.html',
-	      parent: angular.element(document.body),
-	      targetEvent: ev,
-	      clickOutsideToClose:true
-	    })
-	    .then(function(answer) {
-	      $scope.status = 'You said the information was "' + answer + '".';
-	    }, function() {
-	      $scope.status = 'You cancelled the dialog.';
-	    });
+		var modal = ModalService.showModal({
+	          templateUrl: TEMPLATES_PATH+"products/product-add.html",
+	          controller: ProductAddController}).then(function (modal) {
+	            // Modal has been loaded...
+	        	$("#product-add-modal").modal();
+	            modal.element.modal("open");
+	        	  
+	        });
+		
+		
+		
 	  };
 
-	  function DialogController($scope, $mdDialog) {
+	  function ProductAddController($scope) {
 		  $scope.measurments = [
 		                  { id: 1, name: 'g' },
 		                  { id: 2, name: 'kg' },
@@ -34,46 +32,20 @@ app.controller('productController',['$scope', 'products', '$mdDialog', function(
 		  $scope.names = ["Emil", "Tobias", "Linus"];
 		  //$scope.name = shiva;
 		  $scope.hide = function() {
-	      $mdDialog.hide();
+		  $('#productAddModal').modal('close');
 	    };
 	    $scope.cancel = function() {
-	      $mdDialog.cancel();
+	    	$('#productAddModal').modal('close');
 	    };
 
 	    $scope.answer = function(answer) {
-	      $mdDialog.hide(answer);
+	      alert("success");
 	    };
 	  }
-	
-	/*$scope.open = function(){
-		$scope.modalInstance = $uibModal.open({
-	      controller: 'ProductAddController',
-	      controllerAs: 'vm',
-	      templateUrl : TEMPLATES_PATH+'products/product-add.html',
-	      windowTemplateUrl : TEMPLATES_PATH+'products/product-add.html',
-	      resolve: {
-	        items: function() {
-	          return {
-	            title: "title",
-	            message: "msg"
-	          };
-	        }
-	      }
-	    });
-		$scope.modalInstance.result.then(function(){
-
-		},function(){
-
-		});
-	};
-
-	$scope.close = function(){
-		$scope.modalInstance.dismiss('cancel');
-	}*/
 	
 }]);
 
 app.controller('ProductAddController',[ function($scope){
-	$scope.measurments = ["g", "kg", "ltr","ml"];
+	//$scope.measurments = ["g", "kg", "ltr","ml"];
 	
 }]);

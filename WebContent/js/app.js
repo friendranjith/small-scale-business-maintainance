@@ -1,5 +1,5 @@
 var TEMPLATES_PATH = "/small-scale-business-maintainance/html/";
-var app = angular.module('myApp', ['ngRoute','ngMaterial']);
+var app = angular.module('myApp', ['ngRoute','angularModalService']);
 
 
 app.config(['$routeProvider','$qProvider',function($routeProvider,$qProvider) {
